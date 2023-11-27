@@ -1,10 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
 import { getPosts } from './api/axios'
 import { useState, useEffect } from 'react'
 import LandingPage from './components/LandingPage';
 import SearchBar from './components/SearchBar'
 // import ListPage from './components/ListPage'
+// import ResultsPage from './components/ResultsPage/ResultsPage';
 
 function App() {
   // for the title
@@ -22,6 +22,8 @@ function App() {
     })
   }, [])
 
+  console.log(searchResults); // can be removed later
+
   return (
     <>
       <div className="App">
@@ -30,6 +32,7 @@ function App() {
       <SearchBar posts={posts} setSearchResults={setSearchResults} /> 
       <LandingPage/>
       {/* <ListPage searchResults={searchResults} /> */}
+      {/* <ResultsPage caseTitle={"Sample Case"} predictedTags={["tag1", "tag2", "tag3"]} caseInformation={"Sample Case Information"}/> */}
     </>
   );
 }

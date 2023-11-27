@@ -1,0 +1,9 @@
+version: 2
+updates:
+  - package-ecosystem: "npm" # Checking in the npm eacosystem
+    directory: "frontend"  # Specify the correct path to your package manifests
+    schedule:
+      interval: "weekly"
+    labels:
+      - "security"
+
