@@ -29,8 +29,8 @@ const LandingPage = () => {
   };
 
   return (
-    <div style={{ padding: '20px' }}>
-      <h1>G23 Capstone RI</h1>
+    <div id="container" style={{ padding: '20px' }}>
+      {/* <h1>G23 Capstone RI</h1> */}
       
       <Upload {...props} fileList={fileList}>
         <Button icon={<UploadOutlined />}>Select PDFs to Upload</Button>
