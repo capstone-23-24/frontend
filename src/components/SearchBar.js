@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"
-import { MDBCol, MDBIcon } from "mdbreact";
 
 const SearchBar = ({ posts, setSearchResults }) => {
     const handleSubmit = (e) => e.preventDefault()
