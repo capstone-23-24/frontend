@@ -2,6 +2,7 @@ import './App.css';
 import { getPosts } from './api/axios'
 import { useState, useEffect } from 'react'
 import LandingPage from './components/LandingPage';
+import LoginPage from './components/LoginPage/LoginPage'
 import SearchBar from './components/SearchBar'
 // import ListPage from './components/ListPage'
 // import ResultsPage from './components/ResultsPage/ResultsPage';
@@ -29,8 +30,10 @@ function App() {
       <div className="App">
         <h1>Demo Search</h1>
       </div>
-      <SearchBar posts={posts} setSearchResults={setSearchResults} /> 
-      <LandingPage/>
+
+      <LoginPage/>
+      {/* <SearchBar posts={posts} setSearchResults={setSearchResults} />  */}
+      {/**<LandingPage> */}
       {/* <ListPage searchResults={searchResults} /> */}
       {/* <ResultsPage caseTitle={"Sample Case"} predictedTags={["tag1", "tag2", "tag3"]} caseInformation={"Sample Case Information"}/> */}
     </>
