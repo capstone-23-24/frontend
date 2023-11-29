@@ -5,6 +5,7 @@ import LandingPage from './components/LandingPage';
 import SearchBar from './components/SearchBar'
 // import ListPage from './components/ListPage'
 // import ResultsPage from './components/ResultsPage/ResultsPage';
+import Login from './components/Login'
 
 function App() {
   // for the title
@@ -29,6 +30,7 @@ function App() {
       <div className="App">
         <h1>Demo Search</h1>
       </div>
+      <Login />
       <SearchBar posts={posts} setSearchResults={setSearchResults} /> 
       <LandingPage/>
       {/* <ListPage searchResults={searchResults} /> */}
