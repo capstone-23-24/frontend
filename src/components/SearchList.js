@@ -1,6 +1,6 @@
 import Post from "./Post"
 
-const ListPage = ({ searchResults }) => {
+const SearchList = ({ searchResults }) => {
 
     const results = searchResults.map(post => <Post key={post.id} post={post} />)
 
@@ -10,4 +10,4 @@ const ListPage = ({ searchResults }) => {
         <main>{content}</main>
     )
 }
-export default ListPage
+export default SearchList
