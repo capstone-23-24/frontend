@@ -9,23 +9,7 @@ import LandingPage from './pages/LandingPage/LandingPage';
 // import Results from './components/Results/Results';
 
 function App() {
-  // for the title
-  // useEffect(() => {
-  //   document.title = "About Page";  
-  // }, []);
-  // // for the search bar
-  // const [posts, setPosts] = useState([])
-  // const [searchResults, setSearchResults] = useState([])
-
-  // useEffect(() => {
-  //   getPosts().then(json => {
-  //     setPosts(json)
-  //     setSearchResults(json)
-  //   })
-  // }, [])
-
-  // console.log(searchResults); // can be removed later
-
+  
   return (
     <body>
       <Router>
@@ -37,12 +21,6 @@ function App() {
           <Route path="/login" element={<LoginPage/>}/>
 
         </Routes>
-
-
-        {/* <SearchBar posts={posts} setSearchResults={setSearchResults} />  */}
-        {/**<LandingPage> */}
-        {/* <SearchList searchResults={searchResults} /> */}
-        {/* <Results caseTitle={"Sample Case"} predictedTags={["tag1", "tag2", "tag3"]} caseInformation={"Sample Case Information"}/> */}
       </Router>
     </body>
     

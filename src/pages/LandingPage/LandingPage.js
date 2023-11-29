@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Upload, Button, message, List } from 'antd';
+import { Upload, Button, message, List, Col, Row } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import SearchBar from '../../components/SearchBar'
 import SearchList from '../../components/SearchList'
@@ -15,16 +15,12 @@ const LandingPage = () => {
   useEffect(() => {
     document.title = "About Page";  
   }, []);
-  useEffect(() => {
-    getPosts().then(json => {
-      setPosts(json)
-      setSearchResults(json)
-    })
-  }, [])
-
-  const getPosts = () =>  {
-    console.log("values")
-  }
+  // useEffect(() => {
+  //   getPosts().then(json => {
+  //     setPosts(json)
+  //     setSearchResults(json)
+  //   })
+  // }, [])
 
   const props = {
     beforeUpload: file => {
