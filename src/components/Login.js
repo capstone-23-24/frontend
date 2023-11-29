@@ -23,14 +23,16 @@ function Login(){
                     document.getElementById('loader').style.display = 'none'
                 }
             },
-            signInSuccessUrl: '/authenticated', // This is where should redirect if the sign in is successful.
+            signInSuccessUrl: 'localhost:3000/auth', // This is where should redirect if the sign in is successful.
             signInOptions: [ // How users can authenticate
                 {
                     provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
                     requireDisplayName: false,
+                    redirectUrl: 'localhost:3000/auth',
                     disableSignUp: {
                         status: true
                     }
+                    
                 }
             ],
         });
