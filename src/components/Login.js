@@ -16,7 +16,7 @@ function Login(){
         ui.start('#firebaseui-auth-container', {
             callbacks: {
                 signInSuccessWithAuthResult: function(authResult, redirectUrl) {
-                    // Action if the user is authenticated successfully
+                    console.log("success")
                 },
                 uiShown: function() {
                     // This is what should happen when the form is full loaded. In this example, I hide the loader element.
@@ -27,17 +27,12 @@ function Login(){
             signInOptions: [ // How users can authenticate
                 {
                     provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
-                    signInMethod: firebase.auth.EmailAuthProvider.EMAIL_LINK_SIGN_IN_METHOD,
                     requireDisplayName: false,
                     disableSignUp: {
                         status: true
                     }
                 }
             ],
-            tosUrl: 'https://www.example.com/terms-conditions', // URL to you terms and conditions.
-            privacyPolicyUrl: function() { // URL to your privacy policy
-                window.location.assign('https://www.example.com/privacy-policy');
-            }
         });
     }, []);
   
