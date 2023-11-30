@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Upload, Button, message, List, Col, Row } from 'antd';
+import { Upload, Button, message, List} from 'antd';
+import { getPosts } from '../../api/axios'
+
 import { UploadOutlined } from '@ant-design/icons';
-import SearchBar from '../../components/SearchBar'
-import SearchList from '../../components/SearchList'
-import Results from '../../components/Results/Results'
+// import SearchBar from '../SearchBar'
+import SearchList from '../SearchList'
+import Results from '../Results/Results'
 
 const LandingPage = () => {
   const [posts, setPosts] = useState([])
@@ -15,12 +17,12 @@ const LandingPage = () => {
   useEffect(() => {
     document.title = "About Page";  
   }, []);
-  // useEffect(() => {
-  //   getPosts().then(json => {
-  //     setPosts(json)
-  //     setSearchResults(json)
-  //   })
-  // }, [])
+  useEffect(() => {
+    getPosts().then(json => {
+      setPosts(json)
+      setSearchResults(json)
+    })
+  }, [])
 
   const props = {
     beforeUpload: file => {
@@ -46,7 +48,7 @@ const LandingPage = () => {
 
   return (
     <div id="container" style={{ padding: '20px' }}>
-      <SearchBar/>
+      {/* <SearchBar/> */}
       {/* <h1>G23 Capstone RI</h1> */}
       
       <Upload {...props} fileList={fileList}>
