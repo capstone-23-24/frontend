@@ -1,10 +1,28 @@
-import React, { useState } from 'react';
-import { Upload, Button, message, List } from 'antd';
+import React, { useState, useEffect } from 'react';
+import { Upload, Button, message, List} from 'antd';
+import { getPosts } from '../../api/axios'
+
 import { UploadOutlined } from '@ant-design/icons';
+// import SearchBar from '../SearchBar'
+import SearchList from '../SearchList'
+import Results from '../Results/Results'
 
 const LandingPage = () => {
+  const [posts, setPosts] = useState([])
+  const [searchResults, setSearchResults] = useState([])
   const [fileList, setFileList] = useState([]);
   const [results, setResults] = useState([]);
+  
+  //for the title  
+  useEffect(() => {
+    document.title = "About Page";  
+  }, []);
+  useEffect(() => {
+    getPosts().then(json => {
+      setPosts(json)
+      setSearchResults(json)
+    })
+  }, [])
 
   const props = {
     beforeUpload: file => {
@@ -30,6 +48,7 @@ const LandingPage = () => {
 
   return (
     <div id="container" style={{ padding: '20px' }}>
+      {/* <SearchBar/> */}
       {/* <h1>G23 Capstone RI</h1> */}
       
       <Upload {...props} fileList={fileList}>
@@ -56,6 +75,9 @@ const LandingPage = () => {
           />
         </div>
       )}
+
+      <SearchList searchResults={searchResults} />
+      <Results caseTitle={"Sample Case"} predictedTags={["tag1", "tag2", "tag3"]} caseInformation={"Sample Case Information"}/>
     </div>
   );
 };

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "./ResultsPage.css";
+import "./Results.css";
 import { Card, Row, Col } from 'antd'
 
-const ResultsPage = ({ caseTitle, predictedTags, caseInformation }) => {
+const Results = ({ caseTitle, predictedTags, caseInformation }) => {
     const tabList = [
         { key: "Tags", label: "Tags" },
         { key: "Case Information", label: "Case Information" }
@@ -39,4 +39,4 @@ const ResultsPage = ({ caseTitle, predictedTags, caseInformation }) => {
     )
 }
 
-export default ResultsPage;
+export default Results;
