@@ -2,6 +2,7 @@
 import firebase from 'firebase/compat/app';
 import * as firebaseui from 'firebaseui'
 import 'firebaseui/dist/firebaseui.css'
+import './LoginPage.css';
 import { Row, Col } from 'antd'
 import { useNavigate } from 'react-router-dom';
 
@@ -43,17 +44,17 @@ function LoginPage(){
                 }
             ],
         });
-    }, []);
+    }, [navigate]);
   
     return (
-        <Row span={24} justify={'center'}>
-            <Col>
-                <h1 className="text-center my-3 title">Login Page</h1>
-                <div id="firebaseui-auth-container"></div>
-                <div id="loader" className="text-center">Loading form</div>
-            </Col>
-            
-        </Row>
+        <>
+            <Row className='login-row'>
+                <Col className='login-col'>
+                    <div id="firebaseui-auth-container"></div>
+                    <div id="loader">Loading form</div>
+                </Col>
+            </Row>
+        </>
     );
   };
   

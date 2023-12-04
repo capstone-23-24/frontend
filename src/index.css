@@ -2,6 +2,13 @@
   --primary-color: #e3f2fd;
   --secondary-color: #1565c0;
   --card-color: #bbdefb;
+  --black: #000000;
+  --blue: #14213D;
+  --blue-light: #29447e;
+  --orange: #FCA311;
+  --grey: #E5E5E5;
+  --gray: #E5E5E5;
+  --white: #FFFFFF;
 }
 
 body {
