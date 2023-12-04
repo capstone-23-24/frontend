@@ -1,0 +1,30 @@
+.form-container {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.upload-form {
+    height: fit-content;
+    width: 50vw;;
+    background-color: var(--white);
+    padding: 30px;
+    border: solid 1px var(--grey);
+    border-radius: 5px;
+    transition-duration: 0.3s;
+}
+
+.upload-form h3 {
+    color: var(--orange);
+    margin-top: -5px;
+    width: 100%;
+}
+
+.upload-form button {
+    background-color: var(--blue);
+}
+
+.upload-form button:hover {
+    background-color: var(--blue-light) !important;
+}

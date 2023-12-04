@@ -1,0 +1,19 @@
+.login-row {
+    height: 90vh;
+    padding: 5px;
+    justify-content: center;
+}
+
+.login-col {
+    display: flex;
+    align-items: center;
+}
+
+.login-title {
+    text-align: center;
+    color: var(--blue);
+}
+
+.firebaseui-button {
+    background-color: var(--blue) !important;
+}
