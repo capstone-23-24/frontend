@@ -28,15 +28,24 @@ const LandingPage = () => {
 
   const props = {
     beforeUpload: file => {
+      // Check if the file type is CSV
+      const isCSV = file.type === 'text/csv' || file.name.endsWith('.csv');
+
+      if (!isCSV) {
+        message.error('You can only upload CSV files!');
+        return Upload.LIST_IGNORE;;
+      }
+
       setFileList([...fileList, file]);
       return false;
     },
   };
 
+
   const handleUpload = () => {
     // PDF processing logic here
     // For demo purposes, just show a success message
-    message.success('PDFs uploaded and processing started!');
+    message.success("CSV's uploaded and processing started!");
     
     // Simulate processing result data
     const processedResults = fileList.map(file => ({
@@ -47,6 +56,8 @@ const LandingPage = () => {
 
     setResults(processedResults);
     console.log(posts);
+    console.log(fileList)
+    console.log(results)
   };
 
   return (
@@ -56,15 +67,15 @@ const LandingPage = () => {
       
       <div class="form-container">
         <div class="upload-form">
-          <h3>Upload Your Document Here</h3>
           {/* <Upload {...props} fileList={fileList}>
             <Button icon={<UploadOutlined />}>Select PDFs to Upload</Button>
           </Upload> */}
+          <h3>Upload Your CSV Document Here</h3>
           <Dragger {...props}>
             <p className="ant-upload-drag-icon">
               <InboxOutlined />
             </p>
-            <p className="ant-upload-text">Click or drag file to this area to upload</p>
+            <p className="ant-upload-text">Click or drag CSV file to this area to upload</p>
             <p className="ant-upload-hint">
               Support for a single or bulk upload.
             </p>

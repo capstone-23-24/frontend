@@ -10,7 +10,7 @@ function App() {
   return (
     <body>
       <Header className='main-header'>
-        <h1>Racial Indicator</h1>
+        <h1>Demo Search</h1>
       </Header>
       <Router>
         <Routes>
