@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './LandingPage.css';
 import { Upload, Button, message, List} from 'antd';
-import { getPosts } from '../../api/axios'
+import { getPosts } from '../../api/services.js'
 import { InboxOutlined } from '@ant-design/icons';
 // import SearchBar from '../SearchBar'
 import SearchList from '../SearchList'
