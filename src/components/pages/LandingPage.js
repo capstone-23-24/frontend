@@ -1,30 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import './LandingPage.css';
 import { Upload, Button, message, List} from 'antd';
-import { getPosts } from '../../api/axios'
 import { InboxOutlined } from '@ant-design/icons';
-// import SearchBar from '../SearchBar'
-import SearchList from '../SearchList'
+
 import Results from '../Results/Results'
+import { invoke_endpoint } from '../../api/axios'
 
 const { Dragger } = Upload;
 
 const LandingPage = () => {
-  const [posts, setPosts] = useState([])
-  const [searchResults, setSearchResults] = useState([])
+
   const [fileList, setFileList] = useState([]);
   const [results, setResults] = useState([]);
   
   //for the title  
   useEffect(() => {
-    document.title = "About Page";  
+    document.title = "DemoSearch";  
   }, []);
-  useEffect(() => {
-    getPosts().then(json => {
-      setPosts(json)
-      setSearchResults(json)
-    })
-  }, [])
 
   const props = {
     beforeUpload: file => {
@@ -43,21 +35,23 @@ const LandingPage = () => {
 
 
   const handleUpload = () => {
-    // PDF processing logic here
-    // For demo purposes, just show a success message
-    message.success("CSV's uploaded and processing started!");
+    // // PDF processing logic here
+    // // For demo purposes, just show a success message
+    // message.success("CSV's uploaded and processing started!");
     
-    // Simulate processing result data
-    const processedResults = fileList.map(file => ({
-      name: file.name,
-      status: 'Processed Successfully',
-      // Add more result data as needed
-    }));
+    // // Simulate processing result data
+    // const processedResults = fileList.map(file => ({
+    //   name: file.name,
+    //   status: 'Processed Successfully',
+    //   // Add more result data as needed
+    // }));
 
-    setResults(processedResults);
-    console.log(posts);
-    console.log(fileList)
-    console.log(results)
+    // setResults(processedResults);
+    // console.log(fileList)
+    // console.log(results)
+    let body = {'text': "I am Raj, I am from India, I am 22 years old."}
+    invoke_endpoint("", body, "")
+
   };
 
   return (
@@ -84,26 +78,10 @@ const LandingPage = () => {
           <Button type="primary" onClick={handleUpload} style={{ marginTop: '16px' }}>
             Start Processing
           </Button>
-          {results.length > 0 && (
-            <div style={{ marginTop: '20px' }}>
-              <h2>Processing Results</h2>
-              <List
-                dataSource={results}
-                renderItem={item => (
-                  <List.Item>
-                    <List.Item.Meta
-                      title={item.name}
-                      description={item.status}
-                    />
-                  </List.Item>
-                )}
-              />
-            </div>
-          )}
+          
         </div>
       </div>
 
-      <SearchList searchResults={searchResults} />
       <Results caseTitle={"Sample Case"} predictedTags={["tag1", "tag2", "tag3"]} caseInformation={"Sample Case Information"}/>
     </div>
   );
