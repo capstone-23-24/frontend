@@ -91,7 +91,7 @@ apigClientFactory.newClient = function (config) {
     var apiGatewayClient = apiGateway.core.apiGatewayClientFactory.newClient(simpleHttpClientConfig, sigV4ClientConfig);
         
     apigClient.apiPost = async function (params, body, additionalParams) {
-        console.log('reached-1')
+
 
         try {
             if(additionalParams === undefined) { additionalParams = {}; }
@@ -106,15 +106,12 @@ apigClientFactory.newClient = function (config) {
                 body: body
             };
             let result = await apiGatewayClient.makeRequest(apiPostRequest, authType, additionalParams, config.apiKey);
-            console.log('reached-2')
             return result
         } catch(err) {
             console.log(err)
         }
-       
-        
-       
     };    
+    
     // apigClient.apiOptions = function (params, body, additionalParams) {
     //     if(additionalParams === undefined) { additionalParams = {}; }
         

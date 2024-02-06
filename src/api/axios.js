@@ -13,15 +13,17 @@ export const invoke_endpoint = async (params = undefined, body, additionalParams
         .then(response => {
             // Handle successful response
             console.log(response);
+            
         })
         .catch(error => {
                 // Handle error
                 console.error(error);
         });
-        console.log('reached')
     } catch (err)   {
         return `Error in call: ${err}`
     }
+
+
 
 }
 

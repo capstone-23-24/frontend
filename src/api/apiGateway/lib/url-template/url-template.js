@@ -437,5 +437,4 @@ var uritemplate = (function() {
 
 }());
 
-
 export default uritemplate
