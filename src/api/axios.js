@@ -1,10 +1,26 @@
-import axios from "axios"
+import apigClientFactory from './apiGateway/apigClient';
 
-export const api = axios.create({
-    baseURL: 'https://jsonplaceholder.typicode.com'
-})
 
-export const getPosts = async () => {
-    const response = await api.get('/posts')
-    return response.data
+export const invoke_endpoint = async (params = undefined, body, additionalParams = undefined) =>   {
+    
+    
+    const apigClient = apigClientFactory.newClient(); 
+
+    try {
+        await apigClient.apiPost(params, body, additionalParams)
+        .then(response => {
+            // Handle successful response
+            console.log(response);
+            
+        })
+        .catch(error => {
+                // Handle error
+                console.error(error);
+        });
+    } catch (err)   {
+        return `Error in call: ${err}`
+    }
+
+
+
 }
