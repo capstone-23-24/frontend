@@ -9,7 +9,7 @@ const { Dragger } = Upload;
 
 const LandingPage = () => {
 
-  const [fileList, setFileList] = useState([]);
+  
   
   //for the title  
   useEffect(() => {
@@ -23,6 +23,7 @@ const LandingPage = () => {
         message.error('You can only upload CSV files!');
         return Upload.LIST_IGNORE;
       }
+      
     
       // Directly parse the file here
       Papa.parse(file, {
