@@ -30,7 +30,7 @@ const LandingPage = () => {
           console.log('Parsed CSV data:', result.data);
           // For each row in the CSV, call your function
           result.data.forEach(row => {
-            // console.log(row[0])
+            // updating use State with texts from files
             setTextList([...textList, {
               "text": row[0]
             }]);
@@ -50,6 +50,9 @@ const LandingPage = () => {
     for (const text in textList)  {
       invoke_endpoint(text)
     }
+    
+    // emptying text list array to minimize memory usage
+    setTextList([])
   }
 
   // Function to handle file input change and parse the CSV
