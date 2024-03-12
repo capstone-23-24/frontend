@@ -47,7 +47,7 @@ const LandingPage = () => {
   };
 
   const handleFileProcess = () => {
-    for (var text in textList)  {
+    for (const text in textList)  {
       invoke_endpoint(text)
     }
   }
