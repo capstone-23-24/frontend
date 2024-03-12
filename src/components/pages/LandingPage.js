@@ -9,8 +9,7 @@ const { Dragger } = Upload;
 
 const LandingPage = () => {
 
-  
-  
+  const [ textList, setTextList ] = useState();
   //for the title  
   useEffect(() => {
     document.title = "DemoSearch";  
@@ -32,7 +31,9 @@ const LandingPage = () => {
           // For each row in the CSV, call your function
           result.data.forEach(row => {
             // console.log(row[0])
-            invoke_endpoint("", {"text":  row[0]}, "");
+            setTextList([...textList, {
+              "text": row[0]
+            }]);
           });
         },
         header: false,
@@ -44,6 +45,12 @@ const LandingPage = () => {
       return false;
     },
   };
+
+  const handleFileProcess = () => {
+    for (var text in textList)  {
+      invoke_endpoint(text)
+    }
+  }
 
   // Function to handle file input change and parse the CSV
   // const handleFileChange = (event) => {
@@ -90,9 +97,10 @@ const LandingPage = () => {
             </p>
           </Dragger>
           
-          {/* <Button type="primary" onClick={handleFileChange} style={{ marginTop: '16px' }}>
+          
+          <Button type="primary" onClick={handleFileProcess} style={{ marginTop: '16px' }}>
             Start Processing
-          </Button> */}
+          </Button> 
           
           {/* <input type="file" onChange={handleFileChange} /> */}
         </div>
