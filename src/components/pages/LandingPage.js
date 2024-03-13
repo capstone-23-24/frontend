@@ -59,30 +59,6 @@ const LandingPage = () => {
     setFileList([]);
   };
 
-  // Function to handle file input change and parse the CSV
-  // const handleFileChange = (event) => {
-  
-  //   const file = event.target.files[0];
-  //   if (!file) return;
-
-  //   Papa.parse(file, {
-  //     complete: (result) => {
-  //       console.log('Parsed CSV data:', result.data);
-  //       // For each row in the CSV, call handleRowData
-  //       result.data.forEach(row => {
-  //         invoke_endpoint("", row,"");
-  //       });
-  //     },
-  //     header: false, // Assuming CSV has header. Set to false if not
-  //     dynamicTyping: true,
-  //     skipEmptyLines: true,
-  //   });
-  // };
-
-    // let body = {'text': "I am Raj, I am from India, I am 22 years old."}
-    // invoke_endpoint("", body, "")
-
-
   return (
     <div id="container" style={{ padding: '20px' }}>
       {/* <SearchBar/> */}
