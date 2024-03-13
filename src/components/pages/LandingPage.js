@@ -61,14 +61,10 @@ const LandingPage = () => {
 
   return (
     <div id="container" style={{ padding: '20px' }}>
-      {/* <SearchBar/> */}
-      {/* <h1>G23 Capstone RI</h1> */}
-      
+
       <div class="form-container">
         <div class="upload-form">
-          {/* <Upload {...props} fileList={fileList}>
-            <Button icon={<UploadOutlined />}>Select PDFs to Upload</Button>
-          </Upload> */}
+          
           <h3>Upload Your CSV Document Here</h3>
           <Upload.Dragger {...props}>
             <p className="ant-upload-drag-icon">
@@ -86,8 +82,6 @@ const LandingPage = () => {
           
         </div>
       </div>
-
-      {/* <Results caseTitle={"Sample Case"} predictedTags={["tag1", "tag2", "tag3"]} caseInformation={"Sample Case Information"}/> */}
     </div>
   );
 };
