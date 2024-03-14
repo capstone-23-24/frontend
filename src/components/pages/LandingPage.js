@@ -10,12 +10,18 @@ const { Dragger } = Upload;
 const LandingPage = () => {
 
   const [fileList, setFileList] = useState([]);
-  const [ textList, setTextList ] = useState();
+  const [ textList, setTextList ] = useState([]);
+  const [ resultList, setResultList ] = useState([]);
 
   //for the title  
   useEffect(() => {
     document.title = "DemoSearch";  
   }, []);
+
+  useEffect(() => {
+    console.log(textList)
+    console.log(resultList)
+  }, [textList, resultList])
 
   const props = {
     beforeUpload: (file) => {
@@ -29,7 +35,7 @@ const LandingPage = () => {
         complete: (result) => {
           console.log('Parsed CSV data:', result.data);
           result.data.forEach((row) => {
-            setTextList((prevList) => [...prevList, { text: row[0] }]);
+            setTextList((prevList) => [...prevList, { "text": row[0] }]);
           });
         },
         header: false,
@@ -46,11 +52,12 @@ const LandingPage = () => {
     fileList,
   };
 
-  const handleFileProcess = () => {
+  const handleFileProcess = async () => {
     // Assuming `textList` is available in your context or state
-    textList.forEach((text) => {
-      invoke_endpoint(text);
-    });
+    for (let text of textList)  {
+      let response = await invoke_endpoint("",text, "");
+      setResultList((prevList) => [...prevList, response.data])
+    }
 
     // Emptying text list array to minimize memory usage
     setTextList([]);
@@ -77,9 +84,7 @@ const LandingPage = () => {
           
           <Button type="primary" onClick={handleFileProcess} style={{ marginTop: '16px' }}>
             Start Processing
-          </Button> 
-          
-          
+          </Button>
         </div>
       </div>
     </div>
