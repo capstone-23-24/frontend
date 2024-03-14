@@ -1,9 +1,9 @@
 body {
-  background-color: var(--orange);
+  background-color: var(--blue-grey);
 }
 
 .main-header {
-  background-color: var(--blue);
+  background-color: var(--black);
   color: var(--white);
   display: flex;
   align-items: center;

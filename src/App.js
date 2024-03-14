@@ -10,7 +10,7 @@ function App() {
   return (
     <body>
       <Header className='main-header'>
-        <h1>Demo Search</h1>
+        <h1>Demo Search</h1><img src="/logo.jpg" alt="Logo" style={{ width: '10vh', height: '10vh' }}/>
       </Header>
       <Router>
         <Routes>
