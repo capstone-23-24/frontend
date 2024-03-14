@@ -1,10 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
-import LandingPage from './components/LandingPage';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Layout } from 'antd';
+import Login from './components/pages/LoginPage'
+import LandingPage from './components/pages/LandingPage';
+
+const { Header } = Layout;
 
 function App() {
   return (
-    <LandingPage/>
+    <body>
+      <Header className='main-header'>
+        <h1>Demo Search</h1>
+      </Header>
+      <Router>
+        <Routes>
+          {/* Pass onLoginSuccess to the Login component */}
+          <Route exact path="/home" element={<LandingPage />}  />
+          <Route exact path="/" element={<Login/>} />
+        </Routes>
+      </Router>
+    </body>
   );
 }
 
