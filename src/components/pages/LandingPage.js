@@ -4,8 +4,9 @@ import { Upload, Button, message } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
 import { invoke_endpoint } from '../../api/axios'
 import Papa from 'papaparse'
+import Results from '../Results/Results';
 
-const { Dragger } = Upload;
+// const { Dragger } = Upload;
 
 const LandingPage = () => {
 
@@ -53,9 +54,10 @@ const LandingPage = () => {
   };
 
   const handleFileProcess = async () => {
-    // Assuming `textList` is available in your context or state
+    // Assuming textList is available in your context or state
     for (let text of textList)  {
       let response = await invoke_endpoint("",text, "");
+      console.log(response)
       setResultList((prevList) => [...prevList, response.data])
     }
 
@@ -87,6 +89,13 @@ const LandingPage = () => {
           </Button>
         </div>
       </div>
+
+      {resultList.map(({ body }, index) => {
+          const data = JSON.parse(body)[0]['entities'];
+          console.log(data)
+          return <Results caseTitle={`Case ${index + 1}`} caseInformation={"Sample Case Info"} predictedTags={data ?? []} key={index} />;
+        } 
+      )}
     </div>
   );
 };

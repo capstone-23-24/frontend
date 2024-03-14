@@ -9,8 +9,8 @@ const Results = ({ caseTitle, predictedTags, caseInformation }) => {
     ];
 
     const tabs = {
-        "Tags": [predictedTags.map((tag, index) => {
-                    return <p key={index}>{tag}</p>
+        "Tags": [predictedTags.map(({ entity, text }, index) => {
+                    return <p key={index}>{`${text}: ${entity}`}</p>
                 })],
         "Case Information": caseInformation
     };
