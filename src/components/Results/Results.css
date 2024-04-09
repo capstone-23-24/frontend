@@ -1,0 +1,14 @@
+.results-row {
+    padding: 5px;
+    justify-content: center 
+}
+
+.results-col {
+    display: flex;
+    align-items: center;
+}
+
+.results-card {
+    width: 300px;
+    min-height: 300px;
+}
